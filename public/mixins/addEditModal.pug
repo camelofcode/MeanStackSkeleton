@@ -1,0 +1,18 @@
+﻿mixin addEditModal(type, submit, modelDisplayName)
+    - title = type === 'add' ? 'Add' : 'Edit'
+    - confirm = type === 'add' ? 'Add' : 'Save'
+    div(id=`${type}-modal` class="modal fade" role="dialog")
+        div(class="modal-dialog")
+            div(class="modal-content")
+                form(ng-submit=`${submit}` role="form" id=`${type}-form` name=`${type}Form` autocomplete="off" novalidate)
+                    div(class="modal-header")
+                        button(type="button" class="close" data-dismiss="modal") &times;
+                        h4(class="modal-title")= `${title} ${modelDisplayName}`
+                    div(class="modal-body")
+                       if block
+                            block
+                       else
+                            p No content provided
+                    div(class="modal-footer")
+                        button(type="button" class="btn btn-default" data-dismiss="modal") Close
+                        button(class="btn btn-primary")= title

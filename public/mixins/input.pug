@@ -1,0 +1,8 @@
+﻿mixin input(type, form, model, name, label, required, hide=false)
+    div(class="form-group" ng-hide=`${hide}`)
+        label(for=`${name}`)= label
+        if required
+            input(type=`${type}` class="form-control" name=`${name}` ng-model=`${model}` ng-required=`${required}`)
+            div(ng-show=`(${form}.$submitted || ${form}.${name}.$dirty) && ${form}.${name}.$invalid && ${required}` class="validation")= `${label} is required`
+        else
+            input(type=`${type}` class="form-control" name=`${name}` ng-model=`${model}`)

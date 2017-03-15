@@ -1,0 +1,18 @@
+extends includes/layout
+
+block main-content
+    include includes/header
+    div(class='container')
+        div(class='row')
+            div(class='col-md-9')
+                div(class='panel' ng-cloak ng-show="$root.loaded")
+                    section.content
+                        div(ng-view)
+                div(ngcloak ng-hide="$root.loaded" class="text-center")
+                    p &nbsp;
+                    i(class="fa fa-spinner fa-spin fa-3x")
+                           
+            div(class='col-md-3' id="sidebar-parent")
+                div(class="sidebar-wrapper fixed" id="sidebar-wrapper")
+                    include includes/sidebar
+

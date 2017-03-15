@@ -1,0 +1,15 @@
+h3 Upcoming Things
+
+div(ng-show="items.length === 0")
+    h4 No Things
+
+div(ng-repeat="item in items")            
+    div(class="col-sm-6 col-xs-12")
+        div(class="well merch-well retreat-well")
+            div(class="tile-image-wrapper")
+                img(src="{{item.imagePath}}" class="tile-image")
+            h4(class="retreat-location") {{item.title}}
+                p
+            a(class="btn btn-primary center-block retreat-button" href="Things/{{item.url}}") View Details
+
+div(class="clearfix")

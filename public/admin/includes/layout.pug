@@ -1,0 +1,14 @@
+doctype
+html
+    head
+        link(href="/img/favicon.png", rel="shortcut icon")
+        link(rel="stylesheet", href="/styles/bootstrap.css")
+        link(rel="stylesheet", href="/vendor/toastr/toastr.css")
+        link(rel="stylesheet", href="/styles/site.css")
+        link(rel="stylesheet", href="/styles/admin.css")
+        link(rel="stylesheet", href="/vendor/font-awesome/css/font-awesome.min.css")
+        title Came To Believe : Admin
+    body(ng-app='app' class="admin-body")
+        block main-content
+        include scripts
+        include imageUpload

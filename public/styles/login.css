@@ -1,0 +1,27 @@
+.login-wrapper {
+    width: 300px;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+input,
+label {
+    display: block;
+    text-align: left;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.back-link {
+    font-size: 12px;
+    margin-top: 15px;
+}

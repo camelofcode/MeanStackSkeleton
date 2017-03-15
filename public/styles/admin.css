@@ -1,0 +1,62 @@
+
+
+.admin-body {
+    padding-top: 20px;
+}
+
+
+.panel {
+    padding: 0px 30px 20px 30px;
+}
+
+/* Validation */
+div.validation {
+    background-color: lightcoral;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+img {
+    max-width: 100%;
+}
+
+.cell-primary {
+    width: 200px;
+    max-width: 200px;
+}
+
+.cell-input {
+    padding: 5px !important;
+}
+
+.cell-actions {
+    text-align: right;
+    min-width: 110px;
+    vertical-align: middle !important;
+}
+
+.cell-actions.small {
+    min-width: 30px;
+}
+
+.cell-actions button{
+    margin-right: 5px;
+    min-width: 30px;
+}
+
+div.image-drop-wrapper {
+    height: 10em;
+    position: relative;
+    border: 1px dashed #333;
+}
+
+div.image-drop-wrapper .image-drop {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}

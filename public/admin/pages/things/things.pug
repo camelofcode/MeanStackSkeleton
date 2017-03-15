@@ -1,0 +1,47 @@
+include ../../../mixins/input
+include ../../../mixins/checkbox
+include ../../../mixins/textarea
+include ../../../mixins/addEditModal
+include ../../../mixins/deleteModal
+
+h4 Manage Things
+
+button(type="button" class="btn btn-sm btn-primary pull-right" data-toggle="modal" data-target="#add-modal" ng-click="clearSelected()") Add Thing
+
+div(class="clearfix")
+p
+
+table(class="table table-striped")
+    tbody
+        tr(ng-repeat="thing in things")
+            td(class="cell-primary") {{ thing.title }}
+            td {{ thing.date | date:'dd-MMM-yyyy'}}
+            td(class="cell-actions")
+                button(type="button" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#edit-modal" ng-click="selectItem(thing)") Edit
+                button(type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#delete-modal" ng-click="selectItem(thing)") Delete
+  
++addEditModal("add", "add()", "Thing")
+    +input("text", "addForm", "formData.title", "title", "Title", true)
+    +textarea("addForm", "formData.description", "description", "Description", 4)
+    div(class="form-group")
+        label(for="image") Image
+        input(type="file" class="form-control" name="image" file-model="formData.image" ng-model="formData.image")
+
+
++addEditModal("edit", "edit()", "Thing")
+    +input("text", "editForm", "formData.title", "title", "Title", true)
+    +textarea("editForm", "formData.description", "description", "Description", 4)
+    div(class="form-group")
+        label(for="image") Image
+            small(ng-show="selected.deleteImage") &nbsp;You are removing this image
+        div( ng-show="!selected.changingImage && !selected.deleteImage")
+            img(ng-src="{{ selected.imagePath }}" ng-show="!selected.changingImage && !selected.deleteImage && selected.imagePath !== ''")
+        input(type="file" class="form-control" name="image" file-model="formData.image" ng-model="formData.image" id="edit-image-upload" ng-show="selected.changingImage")
+    div(class="form-group")
+        button(type="button" class="btn btn-default btn-sm" ng-click="selected.changingImage = true" ng-show="!selected.changingImage && !selected.deleteImage") Change Image
+        span &nbsp;
+        button(type="button" class="btn btn-default btn-sm" ng-click="selected.deleteImage = true" ng-show="!selected.changingImage && !selected.deleteImage") Remove Image
+        button(type="button" class="btn btn-default btn-sm" ng-click="selected.changingImage = false; selected.deleteImage = false" ng-show="selected.changingImage || selected.deleteImage") Cancel
+   
+
++deleteModal("remove()", "Delete Thing", "Are you sure you want to remove {{ selected.title }}?")

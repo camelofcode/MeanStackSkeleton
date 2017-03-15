@@ -1,0 +1,21 @@
+﻿mixin row(label, value, html)
+        tr(ng-show=`${value} && ${value} !== ''`)        
+            td 
+                strong= label
+            td
+                if html
+                    span(class="preserve-newlines" ng-bind-html=`getTrusted(${value})`)= "{{" + value + "}}" 
+                else
+                    span(class="preserve-newlines")= "{{" + value + "}}" 
+
+h3 {{data.title}}
+hr
+img(src="{{data.imagePath}}" class="img-responsive center-block")
+hr
+table(class="table table-striped")
+    tbody
+        +row("Description", "data.description")
+        +row("Date", "data.date | date: 'yy-MMM-dd'")
+
+div(class="form-group")
+    a(class="btn btn-default center-block form-control" href="/Things") Back to All Things

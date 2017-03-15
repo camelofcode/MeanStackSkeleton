@@ -1,0 +1,12 @@
+h4 Manage Home Page
+
+button(type="button" class="btn btn-sm btn-primary pull-right" ng-hide="editingHomeText" ng-click="editHomeText()") Edit Home Page Text
+div(class="btn-group pull-right" ng-show="editingHomeText")
+    button(type="button" class="btn btn-sm btn-default" ng-click="cancelEditHomeText()") Cancel
+    button(type="button" class="btn btn-sm btn-primary" ng-click="saveHomeText()") Save
+h6 Home Page Text
+div(class="clearfix")
+br
+div(ng-bind-html="getTrusted(homeText)" class="rich-text justify" ng-hide="editingHomeText")
+div(ng-show="editingHomeText")
+    textarea(ui-tinymce="tinymceOptions" ng-model="homeText" )

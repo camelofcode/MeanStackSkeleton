@@ -1,0 +1,75 @@
+h4 Manage Admin Users
+br
+button(type="button" class="btn btn-sm btn-primary pull-right" data-toggle="modal" data-target="#add-modal" ng-click="clearSelected()") Add User
+h6 Users
+
+table(class="table table-striped")
+    tbody
+        tr(ng-repeat="user in users")
+            td(class="cell-primary") {{ user.username }}
+            td(class="cell-actions")
+                button(type="button" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#edit-modal" ng-click="selectItem(user)") Edit
+                button(type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#delete-modal" ng-click="selectItem(user)") Delete
+
+div(id="add-modal" class="modal fade" role="dialog")
+    div(class="modal-dialog")
+        div(class="modal-content")
+            form(ng-submit="addUser()" role="form" id="add-form" name="addForm" autocomplete="off" novalidate)
+                div(class="modal-header")
+                    button(type="button" class="close" data-dismiss="modal") &times;
+                    h4(class="modal-title") Add User
+                div(class="modal-body")
+                    div(class="form-group")
+                        label(for="username") Username
+                        input(type="text" class="form-control" name="username" ng-model="selected.username" required)
+                        div(ng-show="(addForm.$submitted || addForm.username.$dirty) && addForm.username.$invalid" class="validation") Username is required
+                    div(class="form-group")
+                        label(for="password") Password
+                        input(type="password" class="form-control" name="password" ng-model="selected.password" required)
+                        div(ng-show="(addForm.$submitted || addForm.password.$dirty) && addForm.password.$invalid" class="validation") Password is required
+                    div(class="form-group")
+                        label(for="confirmedPassword") Confirm Password
+                        input(type="password" class="form-control" name="confirmedPassword" ng-model="selected.confirmedPassword" required)
+                        div(ng-show="(addForm.$submitted || addForm.confirmedPassword.$dirty) && addForm.confirmedPassword.$invalid" class="validation") Confirmed Password is required
+                        div(ng-show="(addForm.$submitted || addForm.confirmedPassword.$dirty) && selected.confirmedPassword !== selected.password" class="validation") Passwords must match
+
+                div(class="modal-footer")
+                    button(type="button" class="btn btn-default" data-dismiss="modal") Close
+                    button(class="btn btn-primary") Add
+                
+div(id="edit-modal" class="modal fade" role="dialog")
+    div(class="modal-dialog")
+        div(class="modal-content")
+            form(ng-submit="editUser()" role="form" id="edit-form" name="editForm" autocomplete="off" novalidate)
+                div(class="modal-header")
+                    button(type="button" class="close" data-dismiss="modal") &times;
+                    h4(class="modal-title") Edit Track
+                div(class="modal-body")
+                    div(class="form-group")
+                        label(for="username") Username
+                        input(type="text" class="form-control" name="username" ng-model="selected.username" required)
+                        div(ng-show="(editForm.$submitted || editForm.username.$dirty) && editForm.username.$invalid" class="validation") Username is required
+                    div(class="form-group")
+                        label(for="password") Password
+                        input(type="password" class="form-control" name="password" ng-model="selected.password" required)
+                        div(ng-show="(editForm.$submitted || editForm.password.$dirty) && editForm.password.$invalid" class="validation") Password is required
+                    div(class="form-group")
+                        label(for="confirmedPassword") Confirm Password
+                        input(type="password" class="form-control" name="confirmedPassword" ng-model="selected.confirmedPassword" required)
+                        div(ng-show="(editForm.$submitted || editForm.confirmedPassword.$dirty) && editForm.confirmedPassword.$invalid" class="validation") Confirmed Password is required
+                        div(ng-show="(editForm.$submitted || editForm.confirmedPassword.$dirty) && selected.confirmedPassword !== selected.password" class="validation") Passwords must match
+                    div(class="modal-footer")
+                        button(type="button" class="btn btn-default" data-dismiss="modal") Close
+                        button(class="btn btn-primary") Save
+
+div(id="delete-modal" class="modal fade" role="dialog")
+    div(class="modal-dialog")
+        div(class="modal-content")
+            div(class="modal-header")
+                button(type="button" class="close" data-dismiss="modal") &times;
+                h4(class="modal-title") Delete Track
+            div(class="modal-body")
+                p Are you sure you want to remove user '{{ selected.username }}'?
+            div(class="modal-footer")
+                button(type="button" class="btn btn-default" data-dismiss="modal") Close
+                button(type="button" class="btn btn-primary" ng-click="removeUser()") Delete

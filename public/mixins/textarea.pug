@@ -1,0 +1,8 @@
+﻿mixin textarea(form, model, name, label, rows, required)
+    div(class="form-group")
+        label(for="venue")= label
+        if required
+            textarea(class="form-control" name=`${name}` ng-model=`${model}` rows=`${rows}` ng-required=`${required}`)
+            div(ng-show=`(${form}.$submitted || ${form}.${name}.$dirty) && ${form}.${name}.$invalid && ${required}` class="validation")= `${label} is required`
+        else
+            textarea(class="form-control" name=`${name}` ng-model=`${model}`  rows=`${rows}`)

@@ -1,0 +1,29 @@
+doctype
+html
+    head
+        link(href="/img/favicon.jpg", rel="shortcut icon")
+        link(rel="stylesheet", href="/styles/bootstrap.css")
+        link(rel="stylesheet", href="/styles/site.css")
+        link(rel="stylesheet", href="/styles/login.css")
+        title Came To Believe : Admin
+    body
+        div(class='panel login-wrapper')
+            div Welcome to the Admin Panel
+            div Please login to administer site
+            form(action="/Admin/Login" method="POST" autocomplete="off")
+                div
+                    label Username
+                    input(type="text" name="username")
+                div
+                    label Password
+                    input(type="password" name="password")
+                div
+                    button(class="btn btn-primary") Login
+            div(class="back-link")
+                a(href="/") Back to Main Site
+
+
+
+
+    
+    

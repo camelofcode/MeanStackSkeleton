@@ -1,0 +1,12 @@
+h4 Manage Contact Page
+
+button(type="button" class="btn btn-sm btn-primary pull-right" ng-hide="editingContactText" ng-click="editContactText()") Edit Contact Text
+div(class="btn-group pull-right" ng-show="editingContactText")
+    button(type="button" class="btn btn-sm btn-default" ng-click="cancelEditContactText()") Cancel
+    button(type="button" class="btn btn-sm btn-primary" ng-click="saveContactText()") Save
+h6 Contact Text
+div(class="clearfix")
+br
+div(ng-bind-html="getTrusted(contactText)" class="rich-text justify" ng-hide="editingContactText")
+div(ng-show="editingContactText")
+    textarea(ui-tinymce="tinymceOptions" ng-model="contactText" )

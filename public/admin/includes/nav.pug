@@ -1,0 +1,9 @@
+div(ng-controller='menuController' class="admin-nav")
+
+    a(href='/Admin' class="btn btn-default center-block" ng-class="getClass('Admin')") Home
+    a(href='/Admin/Things' class="btn btn-default center-block" ng-class="getClass('Things')") Things
+    a(href='/Admin/Gallery' class="btn btn-default center-block" ng-class="getClass('Gallery')") Gallery
+    a(href='/Admin/Contact' class="btn btn-default center-block" ng-class="getClass('Contact')") Contact
+    a(href='/Admin/Users' class="btn btn-default center-block" ng-class="getClass('Users')") Users
+    a(href='/api/backup'  class="btn btn-default center-block" target='_self') Backup
+    a(href='/Admin/Logout' class="btn btn-default center-block" target='_self') Log Out

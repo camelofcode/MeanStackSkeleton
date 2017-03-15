@@ -1,0 +1,31 @@
+{
+  "name": "cametobelieve",
+  "description": "Website for Came To Believe UK",
+  "main": "server.js",
+  "authors": [
+    "Chris Clayton <n0652640@googlemail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.3",
+    "angular-resource": "^1.6.3",
+    "angular-route": "^1.6.3",
+    "angular-sanitize": "^1.6.3",
+    "angular-cookies": "^1.6.3",
+    "jquery": "1.12.4",
+    "angular-ui-tinymce": "^0.0.18",
+    "toastr": "^2.1.3",
+    "font-awesome": "^4.7.0",
+    "matchHeight": "jquery-match-height#^0.7.0",
+    "ng-file-upload": "^12.2.13"
+  }
+}

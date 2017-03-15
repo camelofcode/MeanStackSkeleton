@@ -1,0 +1,9 @@
+node_modules
+vendor
+testEmails
+public/img/upload
+bin
+obj
+.suo
+.vs
+/public/flyers
