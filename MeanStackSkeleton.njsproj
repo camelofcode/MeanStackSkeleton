@@ -84,6 +84,9 @@
     <Compile Include="server\authentication\passport.js" />
     <Compile Include="server\config\config.js" />
     <Compile Include="server\config\express.js" />
+    <Compile Include="server\config\letsEncrypt.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="server\config\mongoose.js" />
     <Compile Include="server\config\routes.js" />
     <Compile Include="server\controllers\admin.js" />
