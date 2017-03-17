@@ -8,14 +8,22 @@ module.exports = {
         db: 'mongodb://localhost/meanstackskeleton',
         rootPath: rootPath,
         port: process.env.PORT || 3030,
-        useLetsEncrypt: false,
-        letsEncryptServer: 'staging',
+        letsEncrypt: {
+            enabled: false,
+            server: 'staging',
+            whiteList: 'localhost',
+            approver: 'myemail@mydomain.com'
+        }
     },
     live: {
         db: 'mongodb://localhost/meanstackskeleton',
         rootPath: rootPath,
         port: process.env.PORT || 80,
-        useLetsEncrypt: true,
-        letsEncryptServer: 'https://acme-v01.api.letsencrypt.org/directory'
+        letsEncrypt: {
+            enabled: true,
+            server: 'https://acme-v01.api.letsencrypt.org/directory',
+            whiteList: 'yourdomain.com;www.yourdomain.com',
+            approver: 'myemail@mydomain.com'
+        }
     }
 };
