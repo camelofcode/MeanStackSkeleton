@@ -3,9 +3,9 @@ Template for MEAN stack applications, creating good starting point for getting r
 
 This skeleton has been put together based on a few recent mean stack websites I have worked on, namely
 
-https://www.esotericuk.net/
+https://www.cametobelieve.co.uk
 
-http://178.62.38.36/ (Update to URL when it goes live next week)
+https://www.esotericuk.net
 
 
 The purpose of this repo is to allow me, and hopefully others, to start work on similar projects very quickly. The basic site is a modern responsive website using bootstrap, with full CMS capabilities via admin panel (Login with admin:password at /Admin). The example contains plain Rich Text editable CMS pages, a photo gallery and an example of a more customised page.
